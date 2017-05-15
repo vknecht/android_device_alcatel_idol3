@@ -15,9 +15,9 @@
 
 include device/cyanogen/msm8916-common/BoardConfigCommon.mk
 
-include device/wileyfox/crackling/board/*.mk
+include device/alcatel/idol3/board/*.mk
 
-TARGET_BOARD_INFO_FILE := device/wileyfox/crackling/board-info.txt
+TARGET_BOARD_INFO_FILE := device/alcatel/idol3/board-info.txt
 
 # inherit from proprietary files
--include vendor/wileyfox/crackling/BoardConfigVendor.mk
+-include vendor/alcatel/idol3/BoardConfigVendor.mk

@@ -1,41 +1,23 @@
-# Device configuration for Wileyfox Swift
+Copyright 2015 - The CyanogenMod Project
 
-## Spec Sheet
+Device configuration for Alcatel ONETOUCH Idol 3 5.5.
+=====================================
 
-| Feature                 | Specification                     |
-| :---------------------- | :-------------------------------- |
-| CPU                     | Quad-core 1.2 GHz ARM® Cortex™ A53|
-| Chipset                 | Qualcomm MSM8916 Snapdragon 410   |
-| GPU                     | Adreno 306                        |
-| Memory                  | 2 GB                              |
-| Shipped Android Version | 5.1.1                             |
-| Storage                 | 16 GB                             |
-| MicroSD                 | Up to 128 GB                      |
-| Battery                 | 2500 mAh (removable)              |
-| Dimensions              | 71 x 141,15 x 9,36 mm             |
-| Display                 | 720 x 1280 pixels, 5.0" IPS LCD   |
-| Rear Camera             | 13 MP, LED flash                  |
-| Front Camera            | 5 MP                              |
+Basic   | Spec Sheet
+-------:|:-------------------------
+CPU     | Quad-core 1.5 GHz Cortex-A53 & quad-core 1.0 GHz Cortex-A53
+CHIPSET | Qualcomm MSM8939 Snapdragon 615
+GPU     | Adreno 405
+Memory  |2GB RAM
+Shipped Android Version | 5.0.2
+Storage | 16/32GB
+MicroSD | Up to 128GB
+Battery | 2,910 mAh
+Dimensions | 152.7 x 75.1 x 7.4 mm
+Display | 1080 x 1920 pixels, 5.5 in IPS LCD
+Rear Camera  | 13 MP, 4128 x 3096 pixels, autofocus, LED flash
+Front Camera | 8 MP
+Release Date | March 2015
 
-## Device Picture
 
-![Wileyfox Swift](http://s.4pda.to/YstumqO2cI57cw7o9jBDUMREsvGDbWqz0jTna7xTz2z1jqJHnONSI.jpg "Wileyfox Swift")
-
-## Copyright
-
-```
-#
-# Copyright (C) 2016 The CyanogenMod Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
+![Alcatel Idol 3 5.5](http://im.ziffdavisinternational.com/pcmag_me/photo/default/alcatel-one-touch-idol-3-2_xp51.jpg "Alcatel Idol 3 5.5")

@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, device/wileyfox/crackling/full_crackling.mk)
+$(call inherit-product, device/alcatel/idol3/full_crackling.mk)
 
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
@@ -20,16 +20,16 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 # Must define platform variant before including any common things
 TARGET_BOARD_PLATFORM_VARIANT := msm8916
 
-PRODUCT_NAME := lineage_crackling
-BOARD_VENDOR := wileyfox
-PRODUCT_DEVICE := crackling
+PRODUCT_NAME := lineage_idol3
+BOARD_VENDOR := alcatel
+PRODUCT_DEVICE := idol3
 
-PRODUCT_GMS_CLIENTID_BASE := android-wileyfox
+PRODUCT_GMS_CLIENTID_BASE := android-alcatel
 
-PRODUCT_MANUFACTURER := Wileyfox
-PRODUCT_MODEL := Wileyfox Swift
+PRODUCT_MANUFACTURER := Alcatel
+PRODUCT_MODEL := Alcatel Idol3
 
-PRODUCT_BRAND := Wileyfox
-TARGET_VENDOR := wileyfox
-TARGET_VENDOR_PRODUCT_NAME := Swift
-TARGET_VENDOR_DEVICE_NAME := crackling
+PRODUCT_BRAND := Alcatel
+TARGET_VENDOR := alcatel
+TARGET_VENDOR_PRODUCT_NAME := Alcatel
+TARGET_VENDOR_DEVICE_NAME := idol3
