@@ -17,13 +17,13 @@
 
 
 # inherit from the proprietary version
--include vendor/lenovo/A6020/BoardConfigVendor.mk
+-include vendor/alcatel/idol3/BoardConfigVendor.mk
 
-LOCAL_PATH := device/lenovo/A6020
+LOCAL_PATH := device/alcatel/idol3
 
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Asserts
-TARGET_OTA_ASSERT_DEVICE := A6020,A6020a40,A6020a41,A6020a46,A6020l36,A6020l37,K32c36,k5,k5_plus,vibe_k5
+TARGET_OTA_ASSERT_DEVICE := IDOL3
 
 include $(LOCAL_PATH)/board/*.mk

@@ -1,4 +1,4 @@
-# system.prop for A6020
+# system.prop for idol3
 
 # Art
 dalvik.vm.dex2oat-flags=--no-watch-dog

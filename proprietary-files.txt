@@ -1,5 +1,5 @@
 #
-# Blobs for A6020
+# Blobs for Idol3
 #
 
 # Apks

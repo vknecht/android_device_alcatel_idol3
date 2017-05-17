@@ -6,6 +6,3 @@ PRODUCT_PACKAGES += \
     libshim_gui \
     Snap
 
-# Stlport
-PRODUCT_PACKAGES += \
-    libstlport
