@@ -1,1 +1,1 @@
-# TWRP tree for Vibe P1 and P1
+# TWRP tree for Alcatel ONETOUCH Idol 3 5.5
