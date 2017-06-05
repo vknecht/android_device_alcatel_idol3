@@ -24,6 +24,6 @@ LOCAL_PATH := device/alcatel/idol3
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Asserts
-TARGET_OTA_ASSERT_DEVICE := IDOL3
+TARGET_OTA_ASSERT_DEVICE := idol3
 
 include $(LOCAL_PATH)/board/*.mk
