@@ -1,5 +1,7 @@
 # Sensors
 PRODUCT_PACKAGES += \
+    libjni_proximityCalibrate \
+    ProximityCalibrate \
     sensors.msm8916
 
 PRODUCT_COPY_FILES += \
