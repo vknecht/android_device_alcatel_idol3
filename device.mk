@@ -20,4 +20,6 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 # Include package config fragments
 include $(LOCAL_PATH)/product/*.mk
 
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += persist.camera.shutter.disable=1
+
 $(call inherit-product-if-exists, vendor/alcatel/idol3/idol3-vendor.mk)
