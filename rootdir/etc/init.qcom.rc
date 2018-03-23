@@ -263,14 +263,14 @@ service perfd /system/vendor/bin/perfd
     socket perfd seqpacket 0666 root system
     writepid /dev/cpuset/system-background/tasks
 
-    mkdir /data/tombstones 0771 system system
-    mkdir /tombstones/modem 0771 system system
-    mkdir /tombstones/lpass 0771 system system
-    mkdir /tombstones/wcnss 0771 system system
-    mkdir /tombstones/dsps 0771 system system
+    #mkdir /data/tombstones 0771 system system
+    #mkdir /tombstones/modem 0771 system system
+    #mkdir /tombstones/lpass 0771 system system
+    #mkdir /tombstones/wcnss 0771 system system
+    #mkdir /tombstones/dsps 0771 system system
 
-    mkdir /persist/data/sfs 0700 system system
-    mkdir /persist/data/tz 0700 system system
+    #mkdir /persist/data/sfs 0700 system system
+    #mkdir /persist/data/tz 0700 system system
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -541,6 +541,12 @@ service msm_irqbalance /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqb
     group root
     writepid /dev/cpuset/system-background/tasks
 
+service ptt_socket_app /usr/libexec/droid-hybris/system/bin/ptt_socket_app -d
+    class main
+    user root
+    group root
+    oneshot
+
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
@@ -552,6 +558,7 @@ service qseecomd /system/bin/qseecomd
    class core
    user root
    group root
+   disabled
 
 service thermal-engine /system/vendor/bin/thermal-engine
    class main
@@ -565,6 +572,7 @@ service time_daemon /system/bin/time_daemon
    class late_start
    user root
    group root
+   disabled
 
 service audiod /system/bin/audiod
    class late_start
@@ -576,6 +584,7 @@ service wcnss-service /system/bin/wcnss_service
     user system
     group system wifi radio
     oneshot
+    disabled
 
 service qcom-opengles /system/bin/sh /system/etc/init.qcom.opengles.sh
     disabled
@@ -597,7 +606,7 @@ on property:init.svc.surfaceflinger=running
 service per_mgr /system/bin/pm-service
     class core
     user system
-    group system
+    group system net_raw
 
 service power_engine /system/bin/power_engine
     class late_start
