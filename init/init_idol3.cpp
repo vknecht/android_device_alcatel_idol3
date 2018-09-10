@@ -134,50 +134,50 @@ void vendor_load_properties()
         /* 6045I (North America) */
         common_properties();
         gsm_properties("9");
-        property_set("ro.build.fingerprint", "TCL/6045I/idol3:6.0.1/MMB29M/v7VAB-0:user/release-keys");
-        property_set("ro.build.description", "idol3-user 6.0.1 MMB29M v7VAB-0 release-keys");
-        property_set("ro.product.model", "6045I");
+        property_override("ro.build.fingerprint", "TCL/6045I/idol3:6.0.1/MMB29M/v7VAB-0:user/release-keys");
+        property_override("ro.build.description", "idol3-user 6.0.1 MMB29M v7VAB-0 release-keys");
+        property_override("ro.product.model", "6045I");
     } else if (curef_version == "6045B") {
         /* 6045B */
         common_properties();
         gsm_properties("9");
-        property_set("ro.build.fingerprint", "TCL/6045B/idol3:5.0.2/LRX22G/v7SQX-0:user/release-keys");
-        property_set("ro.build.description", "idol3-user 5.0.2 LRX22G v7SQX-0 release-keys");
-        property_set("ro.product.model", "6045B");
+        property_override("ro.build.fingerprint", "TCL/6045B/idol3:5.0.2/LRX22G/v7SQX-0:user/release-keys");
+        property_override("ro.build.description", "idol3-user 5.0.2 LRX22G v7SQX-0 release-keys");
+        property_override("ro.product.model", "6045B");
      } else if (curef_version == "6045F") {
         /* 6045F */
         common_properties();
         gsm_properties("10");
-        property_set("ro.build.fingerprint", "TCL/6045F/idol3:5.0.2/LRX22G/v7TM4-0:user/release-keys");
-        property_set("ro.build.description", "idol3-user 5.0.2 LRX22G v7TM4-0 release-keys");
-        property_set("ro.product.model", "6045F");
+        property_override("ro.build.fingerprint", "TCL/6045F/idol3:5.0.2/LRX22G/v7TM4-0:user/release-keys");
+        property_override("ro.build.description", "idol3-user 5.0.2 LRX22G v7TM4-0 release-keys");
+        property_override("ro.product.model", "6045F");
     } else if (curef_version == "6045K") {
         /* 6045K */
         common_properties();
         gsm_properties("9,1");
         msim_properties();
-        property_set("ro.build.fingerprint", "TCL/6045K/idol3:6.0.1/MMB29M/v7VG6-0:user/release-keys");
-        property_set("ro.build.description", "idol3-user 6.0.1 MMB29M v7VG6-0 release-keys");
-        property_set("ro.product.model", "6045K");
+        property_override("ro.build.fingerprint", "TCL/6045K/idol3:6.0.1/MMB29M/v7VG6-0:user/release-keys");
+        property_override("ro.build.description", "idol3-user 6.0.1 MMB29M v7VG6-0 release-keys");
+        property_override("ro.product.model", "6045K");
     } else if (curef_version == "6045O") {
         /* 6045O Cricket */
         common_properties();
         gsm_properties("9");
-        property_set("ro.build.fingerprint", "TCL/6045O/idol3:5.0.2/LRX22G/v5AMB:user/release-keys");
-        property_set("ro.build.description", "idol3-user 5.0.2 LRX22G v5AMB release-keys");
-        property_set("ro.product.model", "6045O");
+        property_override("ro.build.fingerprint", "TCL/6045O/idol3:5.0.2/LRX22G/v5AMB:user/release-keys");
+        property_override("ro.build.description", "idol3-user 5.0.2 LRX22G v5AMB release-keys");
+        property_override("ro.product.model", "6045O");
     } else if (curef_version == "6045Y") {
         /* 6045Y */
         common_properties();
         gsm_properties("9");
-        property_set("ro.build.fingerprint", "TCL/6045Y/idol3:6.0.1/MMB29M/v7VG6-0:user/release-keys");
-        property_set("ro.build.description", "idol3-user 6.0.1 MMB29M v7VG6-0 release-keys");
-        property_set("ro.product.model", "6045Y");
+        property_override("ro.build.fingerprint", "TCL/6045Y/idol3:6.0.1/MMB29M/v7VG6-0:user/release-keys");
+        property_override("ro.build.description", "idol3-user 6.0.1 MMB29M v7VG6-0 release-keys");
+        property_override("ro.product.model", "6045Y");
     } else {
        /* Default to TCL IDOL3 */
        common_properties();
        gsm_properties("9");
-       property_set("ro.product.model", "TCL IDOL3");
+       property_override("ro.product.model", "TCL IDOL3");
     }
 
         std::string model = property_get("ro.product.model");
