@@ -101,8 +101,8 @@ void init_alarm_boot_properties()
 
 void common_properties()
 {
-        property_set("ro.product.device", "idol3");
-        property_set("ro.build.product", "idol3");
+        property_override("ro.product.device", "idol3");
+        property_override("ro.build.product", "idol3");
 }
 
 void gsm_properties(char const *default_network)
