@@ -1,0 +1,2 @@
+# For /dev/socket/cutback (specific to dualsim second RIL daemon)
+allow init socket_device:sock_file { create setattr unlink } ;
