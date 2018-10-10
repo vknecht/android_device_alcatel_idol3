@@ -74,3 +74,8 @@ ro.sf.lcd_density=480
 # Wifi
 ro.disableWifiApFirmwareReload=true
 wifi.interface=wlan0
+
+# Moved to work-around smd0 being on a newline in build.prop when set from qcom-radio.mk
+rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
+rild.libargs=-d /dev/smd0
+
