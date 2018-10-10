@@ -597,14 +597,14 @@ on property:init.svc.surfaceflinger=running
 service per_mgr /system/bin/pm-service
     class core
     user system
-    group system
+    group system net_raw
 
 service power_engine /system/bin/power_engine
     class late_start
     user root
     group root
     disabled
-    seclabel u:r:power_engine:s0
+    seclabel u:r:thermal-engine:s0
 
 on property:persist.sys.power_ctrl=1
     start power_engine
