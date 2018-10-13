@@ -22,7 +22,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := sensors.pswrapper
 
 LOCAL_MODULE_RELATIVE_PATH := hw
-LOCAL_PROPRIETARY_MODULE := true
+LOCAL_PROPRIETARY_MODULE := false
 
 LOCAL_CFLAGS := -DLOG_TAG=\"pswrapper\"
 

@@ -58,13 +58,14 @@ static int open_lib()
     return 0;
 }
 
-static int sensors_get_sensors_list(struct sensors_module_t *module __unused,
+//static int sensors_get_sensors_list(struct sensors_module_t *module __unused,
+static int get_sensors_list(struct sensors_module_t *module __unused,
     struct sensor_t const** sensors_list)
 {
     int ret = open_lib();
     if (ret < 0)
         return 0;
-
+    ALOGV("pswrapper: requested sensors list...");
     int sensors_count =
         lib_sensors_module->get_sensors_list(lib_sensors_module, sensors_list);
 
@@ -79,8 +80,10 @@ static int sensors_get_sensors_list(struct sensors_module_t *module __unused,
     // fix sensor properties
     for (int i = 0; i < sensors_count; ++i) {
         sensor_t *sensor = &mutable_sensor_list[i];
-        if (sensor->type == SENSOR_TYPE_PROXIMITY)
-            sensor->flags = SENSOR_FLAG_WAKE_UP | SENSOR_FLAG_ON_CHANGE_MODE;
+        if (sensor->type == SENSOR_TYPE_PROXIMITY) {
+		sensor->flags = SENSOR_FLAG_WAKE_UP | SENSOR_FLAG_ON_CHANGE_MODE;
+		ALOGV("pswrapper: forcing PS WAKE_UP flag...");
+	}
     }
 
     return sensors_count;
