@@ -116,6 +116,8 @@ on init
     chmod 0660 /sys/class/sensors/tsl2772-ps/max_latency
     chmod 0660 /sys/class/sensors/tsl2772-ps/poll_delay
 
+    export LD_SHIM_LIBS "/system/lib64/hw/sensors.msm8916.so|/system/vendor/lib64/hw/sensors.pswrapper.so"
+
 on fs
     mount_all fstab.qcom
     mkdir /persist/data 0700 system system

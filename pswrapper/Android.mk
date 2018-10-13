@@ -1,11 +1,11 @@
 #
-# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-# http://www.apache.org/licenses/LICENSE-2.0
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,12 +14,21 @@
 # limitations under the License.
 #
 
-# Overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+LOCAL_PATH := $(call my-dir)
 
-# Include package config fragments
-include $(LOCAL_PATH)/product/*.mk
+include $(CLEAR_VARS)
 
-PRODUCT_PACKAGES += sensors.pswrapper
+#LOCAL_MODULE := sensors.$(TARGET_BOARD_PLATFORM)
+LOCAL_MODULE := sensors.pswrapper
 
-$(call inherit-product-if-exists, vendor/alcatel/idol3/idol3-vendor.mk)
+LOCAL_MODULE_RELATIVE_PATH := hw
+LOCAL_PROPRIETARY_MODULE := true
+
+LOCAL_CFLAGS := -DLOG_TAG=\"pswrapper\"
+
+LOCAL_SRC_FILES := pswrapper.cpp
+
+LOCAL_SHARED_LIBRARIES := liblog
+
+include $(BUILD_SHARED_LIBRARY)
+
