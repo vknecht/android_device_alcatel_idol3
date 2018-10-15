@@ -123,6 +123,9 @@ on fs
     restorecon_recursive /tctpersist
     write /proc/sys/vm/swappiness 100
 
+    exec -- /system/bin/sh /init.tct.variant.sh
+    exec -- /system/bin/sh /system/etc/init.qcom.opengles.sh
+
 on post-fs
 
     # We chown/chmod /tctpersist again so because mount is run as root + defaults
@@ -393,8 +396,6 @@ on boot
     chown system system /sys/devices/virtual/graphics/fb0/rgb
     chmod 0660 /sys/devices/virtual/graphics/fb0/rgb
 
-   start set_variant
-
 on property:bluetooth.isEnabled=true
     write /sys/class/bluetooth/hci0/idle_timeout 7000
 
@@ -455,10 +456,12 @@ on property:hw.fm.init=1
 service qmuxd /system/bin/qmuxd
     class main
     user root
-    group radio audio bluetooth gps nfc qcom_diag
+    group radio audio bluetooth gps nfc qcom_diag wakelock
 
 service netmgrd /system/bin/netmgrd
     class core
+    user root
+    group radio
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
@@ -521,14 +524,22 @@ on property:ro.data.large_tcp_window_size=true
     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
-service ril-daemon1 /system/bin/rild -c 2
+on property:init.svc.ril-daemon=running && property:persist.radio.multisim.config=dsds
+    wait /dev/socket/qmux_radio/rild_oem0
+    start ril-daemon2
+
+#on property:persist.radio.multisim.config=dsds
+#     enable ril-daemon2
+
+service ril-daemon2 /system/bin/rild -c 2
     class main
     socket rild2 stream 660 root radio
     socket rild-debug2 stream 660 radio system
+    socket sap_uim_socket2 stream 660 bluetooth bluetooth
     socket cutback stream 660 media radio
     user root
     disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw qcom_diag log
+    group radio cache inet misc audio log readproc wakelock qcom_diag
 
 service charger /charger
     class charger
@@ -541,7 +552,7 @@ service msm_irqbalance /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqb
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service ptt_socket_app /usr/libexec/droid-hybris/system/bin/ptt_socket_app -d
+service ptt_socket_app /system/bin/ptt_socket_app -d
     class main
     user root
     group root
@@ -586,10 +597,6 @@ service wcnss-service /system/bin/wcnss_service
     oneshot
     disabled
 
-service qcom-opengles /system/bin/sh /system/etc/init.qcom.opengles.sh
-    disabled
-    oneshot
-
 service ppd /system/bin/mm-pp-daemon
     class late_start
     disabled
@@ -613,7 +620,7 @@ service power_engine /system/bin/power_engine
     user root
     group root
     disabled
-    seclabel u:r:power_engine:s0
+    seclabel u:r:thermal-engine:s0
 
 on property:persist.sys.power_ctrl=1
     start power_engine
@@ -621,15 +628,7 @@ on property:persist.sys.power_ctrl=1
 on property:persist.sys.power_ctrl=0
     stop power_engine
 
-service set_variant /system/bin/sh /init.tct.variant.sh
-    class core
-    user root
-    oneshot
-    disabled
-
 service qcom-mem /system/bin/sh /system/etc/init.qcom.mem.sh
     disabled
     oneshot
 
-on load_system_props_action
-    start qcom-opengles
