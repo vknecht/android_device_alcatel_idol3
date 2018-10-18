@@ -15,7 +15,12 @@
  */
 
 #define LOG_TAG "Sensors"
+
+#ifdef __aarch64__
 #define SENSOR_LIB "/system/lib64/hw/sensors.stockmsm8916.so"
+#else
+#define SENSOR_LIB "/system/lib/hw/sensors.stockmsm8916.so"
+#endif
 
 #include <hardware/sensors.h>
 #include <errno.h>
