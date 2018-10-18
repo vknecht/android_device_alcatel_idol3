@@ -368,6 +368,10 @@ on boot
 
     chown system system /sys/devices/virtual/timed_output/vibrator/vtg_level
     chmod 0660 /sys/devices/virtual/timed_output/vibrator/vtg_level
+    chown system system /sys/devices/virtual/timed_output/vibrator/vtg_min
+    chmod 0660 /sys/devices/virtual/timed_output/vibrator/vtg_min
+    chown system system /sys/devices/virtual/timed_output/vibrator/vtg_max
+    chmod 0660 /sys/devices/virtual/timed_output/vibrator/vtg_max
 
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
