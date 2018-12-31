@@ -20,6 +20,7 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 # Include package config fragments
 include $(LOCAL_PATH)/product/*.mk
 
-PRODUCT_PACKAGES += sensors.msm8916
+PRODUCT_PACKAGES += sensors.msm8916 \
+                    FlipFlap
 
 $(call inherit-product-if-exists, vendor/alcatel/idol3/idol3-vendor.mk)
